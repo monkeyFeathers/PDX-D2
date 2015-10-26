@@ -15,4 +15,4 @@ var Greet = {
 
 module.exports = Greet;
 
-if (process.argv.length === 3) {console.log(Greet.sayName(process.argv[2]))}
+if (process.argv.length === 3) {process.stdout.write(Greet.sayName(process.argv[2]))}

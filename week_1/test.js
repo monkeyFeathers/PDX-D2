@@ -23,7 +23,7 @@ describe("greeter", function(){
   });
   it("says its name from the command line", function(done){
     exec("node greet 'Javier'", function(error,stdout,stderr){
-      expect(stdout).to.eql("Hello, my name is Javier\n");
+      expect(stdout).to.eql("Hello, my name is Javier");
       done();
     })
   })
