@@ -1,3 +1,4 @@
+"use strict";
 var Greet = {
 
   sayName: function(name){

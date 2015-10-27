@@ -1,6 +1,7 @@
 var gulp = require("gulp");
 var jshint = require("gulp-jshint");
 var mocha = require("gulp-mocha");
+var stylish = require("jshint-stylish")
 
 var paths = {
   lint:["./week_1/*/*.js"],
@@ -10,7 +11,7 @@ var paths = {
 gulp.task("lint", function(){
   return gulp.src(paths.lint)
     .pipe(jshint())
-    .pipe(jshint.reporter("default"));
+    .pipe(jshint.reporter(stylish));
 });
 
 gulp.task("tests", function(){

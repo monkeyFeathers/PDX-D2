@@ -1,3 +1,4 @@
+"use strict";
 var expect = require("chai").expect;
 var greet = require("./greet");
 var exec = require("child_process").exec;
