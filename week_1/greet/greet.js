@@ -1,8 +1,8 @@
-"use strict";
+ 'use strict';
 var Greet = {
 
   sayName: function(name){
-  return "Hello, my name is " + name;
+  return 'Hello, my name is ' + name;
 },
 test: function(){
   return true;

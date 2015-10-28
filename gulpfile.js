@@ -1,15 +1,16 @@
 var gulp = require("gulp");
 var jshint = require("gulp-jshint");
 var mocha = require("gulp-mocha");
-var stylish = require("jshint-stylish")
+var stylish = require("jshint-stylish");
+var jscs = require("gulp-jscs");
 
 var paths = {
-  lint:["./week_1/*/*.js"],
+  src:["./week_1/*/*.js"],
   tests: ["./week_1/greet/test.js"]
 }
 
 gulp.task("lint", function(){
-  return gulp.src(paths.lint)
+  return gulp.src(paths.src)
     .pipe(jshint())
     .pipe(jshint.reporter(stylish));
 });
@@ -19,8 +20,14 @@ gulp.task("tests", function(){
     .pipe(mocha());
 });
 
-gulp.task("watch", function(){
-  gulp.watch(paths.lint, ["lint", "tests"]);
+gulp.task("jscs", function(){
+  return gulp.src(paths.tests)
+    .pipe(jscs())
+    .pipe(jscs.reporter());
 });
 
-gulp.task("default",["watch", "lint", "tests"]);
+gulp.task("watch", function(){
+  gulp.watch(paths.src, ["lint","jscs"]);
+});
+
+gulp.task("default",["lint", "tests", "jscs"]);
